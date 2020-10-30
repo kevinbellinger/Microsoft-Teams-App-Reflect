@@ -14,7 +14,7 @@ namespace Microsoft.Teams.Apps.Reflect.Web.Controllers
     using Microsoft.Bot.Builder;
     using Microsoft.Bot.Builder.Integration.AspNet.Core;
 
-    /// <summary>
+    /// <summary> "Test entry"
     /// Bot controller.
     /// </summary>
     [Route("api/messages")]
@@ -25,7 +25,7 @@ namespace Microsoft.Teams.Apps.Reflect.Web.Controllers
         private readonly IBot Bot;
         private readonly TelemetryClient _telemetry;
 
-        /// <summary>
+        /// <summary> 
         /// Initializes a new instance of the <see cref="BotController"/> class.
         /// Bot controller.
         /// </summary>
