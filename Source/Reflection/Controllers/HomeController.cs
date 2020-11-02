@@ -219,6 +219,29 @@ namespace Microsoft.Teams.Apps.Reflect.Web.Controllers
         }
 
         /// <summary>
+        /// kbelling FHL 2020.
+        /// Gets the focus values from list.
+        /// </summary>
+        /// <param name="userName">userName.</param>
+        /// <returns>Questions.</returns>
+        [Route("api/GetFocusValues/{userName}")]
+        public async Task<List<FocusValuesDataEntity>> GetFocusValues(string userName)
+        {
+            try
+            {
+                _telemetry.TrackEvent("GetFocusValues");
+                var questions = await _repository.GetFocusValuesForUser(userName);
+                return questions;
+            }
+            catch (Exception ex)
+            {
+                _telemetry.TrackException(ex);
+                return null;
+            }
+
+        }
+
+        /// <summary>
         /// Creates a new reflection adaptive card.
         /// </summary>
         /// <param name="taskInfo">taskInfo.</param>

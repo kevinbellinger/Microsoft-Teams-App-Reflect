@@ -174,5 +174,10 @@ namespace Reflection.Repositories.QuestionsData
                 return null;
             }
         }
+
+        internal Task GetFocusValuesForUser(string userName)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
