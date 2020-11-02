@@ -223,7 +223,7 @@ namespace Microsoft.Teams.Apps.Reflect.Web.Controllers
         /// Gets the focus values from list.
         /// </summary>
         /// <param name="userName">userName.</param>
-        /// <returns>Questions.</returns>
+        /// <returns>Values.</returns>
         [Route("api/GetFocusValues/{userName}")]
         public async Task<List<FocusValuesDataEntity>> GetFocusValues(string userName)
         {
@@ -231,6 +231,52 @@ namespace Microsoft.Teams.Apps.Reflect.Web.Controllers
             {
                 _telemetry.TrackEvent("GetFocusValues");
                 var questions = await _repository.GetFocusValuesForUser(userName);
+                return questions;
+            }
+            catch (Exception ex)
+            {
+                _telemetry.TrackException(ex);
+                return null;
+            }
+
+        }
+
+        /// <summary>
+        /// kbelling FHL 2020.
+        /// Gets the energy values from list.
+        /// </summary>
+        /// <param name="userName">userName.</param>
+        /// <returns>Values.</returns>
+        [Route("api/GetEnergyValues/{userName}")]
+        public async Task<List<EnergyValuesDataEntity>> GetEnergyValues(string userName)
+        {
+            try
+            {
+                _telemetry.TrackEvent("GetEnergyValues");
+                var questions = await _repository.GetEnergyValuesForUser(userName);
+                return questions;
+            }
+            catch (Exception ex)
+            {
+                _telemetry.TrackException(ex);
+                return null;
+            }
+
+        }
+
+        /// <summary>
+        /// kbelling FHL 2020.
+        /// Gets the focus values from list.
+        /// </summary>
+        /// <param name="userName">userName.</param>
+        /// <returns>Values.</returns>
+        [Route("api/GetConfidenceValues/{userName}")]
+        public async Task<List<ConfidenceValuesDataEntity>> GetConfidenceValues(string userName)
+        {
+            try
+            {
+                _telemetry.TrackEvent("GetConfidenceValues");
+                var questions = await _repository.GetConfidenceValuesForUser(userName);
                 return questions;
             }
             catch (Exception ex)

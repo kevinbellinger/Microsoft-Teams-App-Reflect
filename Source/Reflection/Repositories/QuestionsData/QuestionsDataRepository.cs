@@ -179,5 +179,15 @@ namespace Reflection.Repositories.QuestionsData
         {
             throw new NotImplementedException();
         }
+
+        internal Task GetEnergyValuesForUser(string userName)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal Task GetConfidenceValuesForUser(string userName)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
