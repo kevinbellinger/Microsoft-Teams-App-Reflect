@@ -90,5 +90,53 @@ namespace Reflection.Repositories
             /// </summary>
             public static readonly string FeedbackDataPartition = "FeedbackData";
         }
+
+        /// <summary>
+        /// Confidence Data Table.
+        /// </summary>
+        public static class ConfidenceDataTable
+        {
+            /// <summary>
+            /// Table name for Questions data table.
+            /// </summary>
+            public static readonly string TableName = "ConfidenceData";
+
+            /// <summary>
+            /// Questions data partition key name.
+            /// </summary>
+            public static readonly string ConfidenceDataPartition = "ConfidenceData";
+        }
+
+        /// <summary>
+        /// Focus Data Table.
+        /// </summary>
+        public static class FocusDataTable
+        {
+            /// <summary>
+            /// Table name for Focus data table.
+            /// </summary>
+            public static readonly string TableName = "FocusData";
+
+            /// <summary>
+            /// Questions data partition key name.
+            /// </summary>
+            public static readonly string FocusDataPartition = "FocusData";
+        }
+
+        /// <summary>
+        /// Energy Data Table.
+        /// </summary>
+        public static class EnergyDataTable
+        {
+            /// <summary>
+            /// Table name for Energy data table.
+            /// </summary>
+            public static readonly string TableName = "EnergyData";
+
+            /// <summary>
+            /// Questions data partition key name.
+            /// </summary>
+            public static readonly string EnergyDataPartition = "EnergyData";
+        }
     }
 }
