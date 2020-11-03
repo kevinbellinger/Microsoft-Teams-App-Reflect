@@ -536,6 +536,181 @@ namespace Reflection.Helper
             }
         }
 
+        /// <summary>
+        /// New post adaptive card to capture mood.
+        /// </summary>
+        /// <param name="data">This is viewModel holds the forntend data.</param>
+        /// <returns>AdaptiveCard.</returns>
+        public AdaptiveCard CaptureMood(TaskInfo data)
+        {
+            _telemetry.TrackEvent("CaptureMood");
+
+            try
+            {
+                return new AdaptiveCard(new AdaptiveSchemaVersion(1, 2))
+                {
+                    Body = new List<AdaptiveElement>
+                    {
+                        new AdaptiveColumnSet
+                        {
+                            Columns = new List<AdaptiveColumn>()
+                            {
+                                 new AdaptiveColumn()
+                                {
+                                    Width=AdaptiveColumnWidth.Auto,
+                                    Height=AdaptiveHeight.Auto,
+                                    Items =new List<AdaptiveElement>()
+                                                {
+                                                  new AdaptiveImage(){Url=new Uri(_configuration["BaseUri"] + "/images/iconCreator.png"),PixelHeight=12, PixelWidth=12, AltText="Creator",HorizontalAlignment=AdaptiveHorizontalAlignment.Center }
+                                               },
+                                },
+                                 new AdaptiveColumn()
+                                {
+                                    Width=AdaptiveColumnWidth.Auto,
+                                    Height=AdaptiveHeight.Auto,
+                                    Spacing=AdaptiveSpacing.Small,
+                                    Items=new List<AdaptiveElement>()
+                                    {
+                                     new AdaptiveTextBlock("Created by "+ $"{data.postCreateBy} ") { Color = AdaptiveTextColor.Default, Size=AdaptiveTextSize.Small, Wrap=true }
+                                    },
+                                 },
+                                 new AdaptiveColumn()
+                                {
+                                    Width=AdaptiveColumnWidth.Auto,
+                                    Height=AdaptiveHeight.Auto,
+                                    Spacing=AdaptiveSpacing.Medium,
+                                    Items=new List<AdaptiveElement>()
+                                    {
+                                        new AdaptiveImage(){Url=new Uri(_configuration["BaseUri"] + "/images/iconPrivacy.png"),PixelHeight=12, PixelWidth=12,AltText="Privacy",HorizontalAlignment=AdaptiveHorizontalAlignment.Center,Spacing=AdaptiveSpacing.None }
+                                    },
+                                },
+                                 new AdaptiveColumn()
+                                {
+                                    Width=AdaptiveColumnWidth.Auto,
+                                    Height=AdaptiveHeight.Auto,
+                                    Spacing=AdaptiveSpacing.Small,
+                                    Items=new List<AdaptiveElement>()
+                                    {
+                                        new AdaptiveTextBlock($"{data.privacy}") { Color = AdaptiveTextColor.Default, Size=AdaptiveTextSize.Small, Wrap=true }
+                                    },
+                                }
+                            }
+                        },
+                        new AdaptiveTextBlock($"{data.question}") { Id = ($"{data.question }"), Weight = AdaptiveTextWeight.Bolder, Size=AdaptiveTextSize.Large, Wrap=true, MaxWidth=100}
+                    },
+                    Actions = new List<AdaptiveAction>
+                    {
+                    new AdaptiveSubmitAction()
+                                                {
+                                                    Title=" ",
+                                                    IconUrl=_configuration["BaseUri"] + "/images/Default_1.png",
+                                                    Type="Action.Submit",
+                                                    Data =
+                                                    new TaskModuleActionHelper.AdaptiveCardValue<TaskModuleActionDetails>()
+                                                    {
+                                                        Data = new TaskModuleActionDetails()
+                                                        {
+                                                            type ="task/fetch",
+                                                            URL =_configuration["BaseUri"] + "/openReflections/"
+                                                        },
+                                                        DataJson=new DataJson
+                                                        {
+                                                            ReflectionId=data.reflectionID,
+                                                            FeedbackId=1
+                                                        }
+                                                    },
+                                                    },
+                    new AdaptiveSubmitAction()
+                                                {
+                                                    Title=" ",
+                                                    IconUrl=_configuration["BaseUri"] + "/images/Default_2.png",
+                                                    Type="Action.Submit",
+                                                    Data =
+                                                    new TaskModuleActionHelper.AdaptiveCardValue<TaskModuleActionDetails>()
+                                                    {
+                                                        Data = new TaskModuleActionDetails()
+                                                        {
+                                                            type ="task/fetch",
+                                                            URL =_configuration["BaseUri"] + "/openReflections/",
+                                                        },
+                                                        DataJson=new DataJson
+                                                        {
+                                                            ReflectionId=data.reflectionID,
+                                                            FeedbackId=2
+                                                        }
+                                                    }
+                                                },
+                    new AdaptiveSubmitAction()
+                                                {
+                                                    Title=" ",
+                                                    IconUrl=_configuration["BaseUri"] + "/images/Default_3.png",
+                                                    Type="Action.Submit",
+                                                    Data =
+                                                    new TaskModuleActionHelper.AdaptiveCardValue<TaskModuleActionDetails>()
+                                                    {
+                                                        Data = new TaskModuleActionDetails()
+                                                        {
+                                                            type ="task/fetch",
+                                                            URL =_configuration["BaseUri"] + "/openReflections/",
+                                                        },
+                                                        DataJson=new DataJson
+                                                        {
+                                                            ReflectionId=data.reflectionID,
+                                                            FeedbackId=3
+                                                        }
+                                                    }
+                                                },
+                    new AdaptiveSubmitAction()
+                                                {
+                                                    Title=" ",
+                                                    IconUrl=_configuration["BaseUri"] + "/images/Default_4.png",
+                                                    Type="Action.Submit",
+                                                    Data =
+                                                    new TaskModuleActionHelper.AdaptiveCardValue<TaskModuleActionDetails>()
+                                                    {
+                                                        Data = new TaskModuleActionDetails()
+                                                        {
+                                                            type ="task/fetch",
+                                                            URL =_configuration["BaseUri"] + "/openReflections/",
+                                                        },
+                                                        DataJson=new DataJson
+                                                        {
+                                                            ReflectionId=data.reflectionID,
+                                                            FeedbackId=4
+                                                        }
+                                                    }
+                                                },
+                    new AdaptiveSubmitAction()
+                                                {
+                                                    Title=" ",
+                                                    IconUrl=_configuration["BaseUri"] + "/images/Default_5.png",
+                                                    Type="Action.Submit",
+                                                    Data =
+                                                    new TaskModuleActionHelper.AdaptiveCardValue<TaskModuleActionDetails>()
+                                                    {
+                                                        Data = new TaskModuleActionDetails()
+                                                        {
+                                                            type ="task/fetch",
+                                                            URL =_configuration["BaseUri"] + "/openReflections/",
+                                                        },
+                                                        DataJson=new DataJson
+                                                        {
+                                                            ReflectionId=data.reflectionID,
+                                                            FeedbackId=5
+                                                        }
+                                                    }
+                                                },
+                    }
+                };
+            }
+            catch (Exception ex)
+            {
+                _telemetry.TrackException(ex);
+                return null;
+            }
+        }
+
+
         public AdaptiveCard ConfirmationCard(string messageId)
         {
             _telemetry.TrackEvent("ConfirmationCard");

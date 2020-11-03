@@ -26,5 +26,7 @@ namespace Reflection.Interfaces
         AdaptiveCard CreateNewReflect(TaskInfo data);
 
         AdaptiveCard ConfirmationCard(string messageId);
+
+        AdaptiveCard CaptureMood(TaskInfo data);
     }
 }

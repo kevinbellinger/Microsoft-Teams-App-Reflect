@@ -415,5 +415,6 @@ namespace Reflection.Model
         public static readonly string RemovePosts = "removeposts";
         public static readonly string RecurringPosts = "recurringreflections";
         public static readonly string CreateReflect = "createreflect";
+        public static readonly string CaptureMood = "capturemood";
     }
 }
