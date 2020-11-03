@@ -64,9 +64,9 @@ namespace Microsoft.Teams.Apps.Reflect.Web.Controllers
         /// <param name="userName">userName.</param>
         /// <returns>View.</returns>
         [Route("{userName}")]
-        public ActionResult Olga(string userName)
+        public ActionResult Index(string userName)
         {
-            _telemetry.TrackEvent("Olga");
+            _telemetry.TrackEvent("Index");
             if (userName != null)
             {
                 ViewBag.UserName = userName;
